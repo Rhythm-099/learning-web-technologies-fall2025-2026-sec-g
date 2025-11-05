@@ -1,0 +1,22 @@
+<admissions>
+    <admission>
+         <sl>SL. NO.</sl>
+        <name>NAME</name>
+        <date>ADMISSION DATE</date>
+    </admission>
+    <admission>
+        <sl>23</sl>
+        <name>John Carter</name>
+        <date>25/12/2015</date>
+    </admission>
+    <admission>
+        <sl>29</sl>
+        <name>Bob Marshal</name>
+        <date>13/01/1999</date>
+    </admission>
+    <admission>
+        <sl>35</sl>
+        <name>Clark Kent</name>
+        <date>17/06/2005</date>
+    </admission>
+</admissions>
