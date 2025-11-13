@@ -1,0 +1,187 @@
+<html lang="en">
+<head>
+  <title>Person Profile Form</title>
+
+  <script>
+    function formValidation() {
+
+      let name = document.getElementById("name").value; //name
+      if (name == "") {
+        alert("Name cannot be empty");
+        return false;
+      }
+      let wCount = 0;
+      for (let i = 0; i < name.length; i++) {
+        if (name[i] == ' ') {
+          wCount++;
+        }
+        if (!((name[i] >= 'A' && name[i] <= 'Z') ||
+              (name[i] >= 'a' && name[i] <= 'z') ||
+              name[i] == '.' || name[i] == '-' || name[i] == ' ')) {
+          alert("Invalid name");
+          return false;
+        }
+      }
+      if (wCount < 1) {
+        alert("Name must contain at least two words");
+        return false;
+      }
+      if (!((name[0] >= 'A' && name[0] <= 'Z') || (name[0] >= 'a' && name[0] <= 'z'))) {
+        alert("Name must start with a letter");
+        return false;
+      }
+
+      let email = document.getElementById("email").value; //email
+      if (email == "") {
+        alert("Email cannot be empty");
+        return false;
+      }
+
+      let atFound = false
+      let dotFound = false;
+      for (let i = 0; i < email.length; i++) {
+        if (email[i] == '@') atFound = true;
+        if (atFound && email[i] == '.') dotFound = true;
+      }
+      if (!atFound || !dotFound) {
+        alert("Invalid email format");
+        return false;
+      }
+
+      let genderOptions = document.getElementsByName("gender"); //gender
+      let genderSelected = false;
+      for (let i = 0; i < genderOptions.length; i++) {
+        if (genderOptions[i].checked) genderSelected = true;
+      }
+      if (!genderSelected) {
+        alert("Please select your gender");
+        return false;
+      }
+
+      let dob = document.getElementById("dob").value; //birthday
+      if (dob == "") {
+        alert("Please select your date of birth");
+        return false;
+      }
+
+      let blood = document.getElementById("blood").value; //bloodgroup
+      if (blood == "") {
+        alert("Please select your blood group");
+        return false;
+      }
+
+      let degrees = document.getElementsByName("degree"); //degree
+      let degreeSelected = false;
+      for (let i = 0; i < degrees.length; i++) {
+        if (degrees[i].checked) degreeSelected = true;
+      }
+      if (!degreeSelected) {
+        alert("Please select at least one degree");
+        return false;
+      }
+
+      let picture = document.getElementById("picture").value;
+
+      if (picture == "") {
+        alert("Please upload a picture!");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+
+  </script>
+</head>
+
+<body>
+
+
+
+  <form onsubmit="return formValidation()">
+    <table border="1" cellpadding="8" style="border-collapse: collapse; width: 500px;">
+      <tr>
+        <th colspan="3" style="text-align:center;">PERSON PROFILE</th>
+      </tr>
+
+      <tr>
+        <td>Name</td>
+        <td><input type="text" id="name" name="name"></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td><input type="text" id="email" name="email"></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Gender</td>
+        <td>
+            <input type="radio" id="male" name="gender" value="Male"> Male
+            <input type="radio" id="female" name="gender" value="Female"> Female
+            <input type="radio" id="other" name="gender" value="Other"> Other
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Date of Birth</td>
+        <td>
+            <input type="date" id="dob" name="dob">
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Blood Group</td>
+        <td>
+            <select id="blood" name="blood">
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Degree</td>
+        <td>
+            <input type="checkbox" name="degree" value="O Levels"> O Levels<br>
+            <input type="checkbox" name="degree" value="A Levels"> A Levels<br>
+            <input type="checkbox" name="degree" value="BSc"> BSc
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>Photo</td>
+        <td>
+            <input type="file" id="picture" name="picture">
+        </td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td colspan="3" style="height:40px;"></td>
+      </tr>
+
+      <tr>
+        <td colspan="3" align="right">
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </td>
+      </tr>
+
+    </table>
+  </form>
+
+</body>
+</html>
