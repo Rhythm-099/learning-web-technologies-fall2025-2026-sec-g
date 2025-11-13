@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <title>Name Form</title>
+
+  <script>
+
+
+  function showName() {
+    let name = document.getElementById("name");
+    console.log(name.value);
+  }
+
+    function namevalidation() {
+      let name = document.getElementById("name").value;
+
+      if (name == "") {
+        alert("Name field is empty, write name");
+        return false;
+      }
+
+      let wCount = 0;
+      for (let i = 0; i < name.length; i++) {
+        if (name[i] == ' ') {
+          wCount++;
+        }
+      }
+      /*if (wCount < 1) {
+        alert("Write two words");
+        return false;
+      }*/
+
+      if (!((name[0] >= 'A' && name[0] <= 'Z') || (name[0] >= 'a' && name[0] <= 'z'))) {
+        alert("Invalid name");
+        return false;
+      }
+
+      for (let i = 0; i < name.length; i++) {
+        if (!(
+          (name[i] >= 'A' && name[i] <= 'Z') ||
+          (name[i] >= 'a' && name[i] <= 'z') ||
+          name[i] == '.' ||
+          name[i] == '-' ||
+          name[i] == ' '
+        )) {
+          alert("Invalid");
+          return false;
+        }
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Name Form</h2>
+  <form onsubmit="return namevalidation()">
+    <label for="name">Enter your name:</label><br><br>
+    <input type="text" id="name" name="name">
+    <br><br>
+    <input type="submit" value="Submit">
+    <button onclick="showName()">Show Name</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <title>Date of Birth Form</title>
+
+  <script>
+    function dobValidation() {
+      let dob = document.getElementById("dob").value;
+
+      if (dob == "") {
+        alert("Please select your date of birth");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+
+  <h2>Date of Birth Form</h2>
+
+  <form onsubmit="return dobValidation()">
+    <fieldset style="width: 250px;">
+      <legend>Date of Birth</legend>
+      <input type="date" id="dob" name="dob">
+    </fieldset><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>
