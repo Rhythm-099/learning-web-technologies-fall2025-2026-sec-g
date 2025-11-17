@@ -14,13 +14,17 @@ b.placeholder = "Enter y";
 let addBtn = document.createElement("button");
 let subBtn = document.createElement("button");
 let mulBtn = document.createElement("button");
+let divBtn = document.createElement("button");
+let clrBtn = document.createElement("button");
 addBtn.innerText = "+";
 subBtn.innerText = "-";
 mulBtn.innerText = "*";
+divBtn.innerText = "/";
+clrBtn.innerText = "C";
 
 let result = document.createElement("p");
 
-document.body.append(a, b, addBtn, subBtn, mulBtn, result);
+document.body.append(a, b, addBtn, subBtn, mulBtn, divBtn, clrBtn, result);
 
 addBtn.addEventListener("click", function() {   // addition
     result.innerText = Number(a.value) + Number(b.value);
@@ -32,6 +36,20 @@ subBtn.addEventListener("click", function() {  // subtraction
 
 mulBtn.addEventListener("click", function () {   //multiplication
     result.innerText = Number(a.value) * Number(b.value);
+});
+
+divBtn.addEventListener("click", function () {   //divison
+    if (Number(b.value) === 0) {
+        result.innerText = "Math error";
+    } else {
+        result.innerText = Number(a.value) / Number(b.value);
+    }
+});
+
+clrBtn.addEventListener("click", function () { //clear
+    a.value = "";
+    b.value = "";
+    result.innerText = "";
 });
 </script>
 </script>
