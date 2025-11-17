@@ -10,7 +10,8 @@ a.type="number";
 b.type="number";
 a.placeholder = "Enter x";
 b.placeholder = "Enter y";
-let addbtn = document.createElement("button");
+
+let addBtn = document.createElement("button");
 let subBtn = document.createElement("button");
 addBtn.innerText = "+";
 subBtn.innerText = "-";
@@ -19,11 +20,11 @@ let result = document.createElement("p");
 
 document.body.append(a, b, addBtn, subBtn, result);
 
-addbtn.addEventListener("click", function() {   //addition
+addBtn.addEventListener("click", function() {   // addition
     result.innerText = Number(a.value) + Number(b.value);
 });
 
-subBtn.addEventListener("click", function() {  //substraction
+subBtn.addEventListener("click", function() {  // subtraction
     result.innerText = Number(a.value) - Number(b.value);
 });
 </script>
