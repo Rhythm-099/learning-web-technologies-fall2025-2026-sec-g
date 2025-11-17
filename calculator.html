@@ -1,9 +1,52 @@
 <html>
 <head>
     <title>calculator</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100px;
+            background: #f0f0f0;
+        }
+
+        .calculator {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100px;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #339738;
+        }
+    </style>
 </head>
 <body>
 <script>
+
+let container = document.createElement("div");
+container.className = "calculator";
+
 let a = document.createElement("input");
 let b = document.createElement("input");
 a.type="number";
