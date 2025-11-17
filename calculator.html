@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>calculator</title>
+</head>
+<body>
+<script>
+let a = document.createElement("input");
+let b = document.createElement("input");
+a.type="number";
+b.type="number";
+a.placeholder = "Enter x";
+b.placeholder = "Enter y";
+let btn = document.createElement("button");
+let result = document.createElement("p");
+
+btn.innerText = "+";
+
+document.body.append(a, b, btn, result);
+
+btn.addEventListener("click", function() {
+    result.innerText = Number(a.value) + Number(b.value);
+});
+</script>
+</body>
+</html>
