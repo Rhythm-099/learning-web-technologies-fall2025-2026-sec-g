@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>form creator</title>
+
+        <style>
+            .row {
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            .field-block {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-top: 10px;
+            }
+        </style>
+
+        <script>
+            let fields = [];
+            let inputs = [];
+
+            window.addEventListener("DOMContentLoaded", function() {
+
+                document.getElementById("addBtn").addEventListener("click", function() {
+                    let text = document.getElementById("labelinput").value;
+                    let type = document.getElementById("inputtype").value;
+
+                    if (text === "") {
+                        alert("Empty field not allowed");
+                        return;
+                    }
+
+                    fields.push({ text: text, type: type });
+
+                    renderFields();
+                    document.getElementById("labelinput").value = "";
+                });
+
+                document.getElementById("saveBtn").addEventListener("click", function() {
+                    for (let i = 0; i < inputs.length; i++) {
+                        if (inputs[i].value === "") {
+                            alert("Please fill all fields before saving");
+                            return;
+                        }
+                    }
+
+                    document.getElementById("savemessage").innerText = "Your inputs are saved";
+                });
+            });
+
+            function renderFields() {
+                let box = document.getElementById("formDisplay");
+                box.innerHTML = "";
+                inputs = [];
+
+                for (let i = 0; i < fields.length; i++) {
+                    let block = document.createElement("div");
+                    block.className = "field-block";
+
+                    let label = document.createElement("p");
+                    label.innerText = fields[i].text;
+
+                    let input = document.createElement("input");
+                    input.type = fields[i].type;
+
+                    inputs.push(input);
+
+                    block.appendChild(label);
+                    block.appendChild(input);
+                    box.appendChild(block);
+                }
+            }
+        </script>
+
+    </head>
+    <body>
+        <div class="row">
+            <input type="text" id="labelinput" placeholder="Enter your label">
+
+            <select id="inputtype">
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+                <option value="number">Number</option>
+                <option value="radio">Radio</option>
+                <option value="checkbox">Checkbox</option>
+            </select>
+
+            <button id="addBtn">Add</button>
+        </div>
+
+        <button id="saveBtn">Save</button>
+        <div id="formDisplay"></div>
+        <p id="savemessage" style="color: green;"></p>
+
+    </body>
+</html>
